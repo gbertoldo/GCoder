@@ -5,7 +5,8 @@
 # the same name of the file and of the widget class.
 #
 millWidgetList  = [\
-    "MillFaceZWidget"\
+    "MillFaceZWidget",\
+    "MillProfileRoundedRectangleXAWidget"\
     ]
     
 #

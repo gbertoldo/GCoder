@@ -19,6 +19,9 @@ def y(value):
 def z(value):
 	return " Z"+"{:.4f}".format(value)
 
+def a(value):
+	return " A"+"{:.4f}".format(value)
+
 def f(value):
 	return " F"+"{:.4f}".format(value)
 
