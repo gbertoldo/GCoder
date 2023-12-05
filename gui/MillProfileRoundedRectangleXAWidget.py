@@ -53,7 +53,7 @@ class MillProfileRoundedRectangleXAWidget(Frame):
 
     @staticmethod
     def getOperationLabel():
-        return "Perfil retangulo arredondado (XA)"
+        return "Perfil retangular arredondado (XA)"
 
     def getFields(self):
         return self.form.getFields()

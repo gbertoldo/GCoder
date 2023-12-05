@@ -29,6 +29,11 @@ def TextEntry(name, label, value=""):
     """
     return {"name": name, "type": "text", "label": label, "value": value}
 
+def extractValue(name, fields):
+    """
+        Extracts the value of variable 'name' from fields
+    """
+    return filter(lambda variable: variable['name'] == name, fields)[0]['value']
 
 class EntryFormWidget(Frame):
     """
@@ -51,7 +56,7 @@ class EntryFormWidget(Frame):
             Entry(self, textvariable=self.data[crow], width=width, justify="right").grid(row=crow,column=ccol+1)
             Label(self,text=field["label"]).grid(row=crow,column=ccol+2,sticky=W)
             crow = crow+1
-    
+
     def getFields(self):
         """
             Return a list of fields

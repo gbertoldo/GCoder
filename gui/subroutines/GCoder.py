@@ -25,6 +25,10 @@ def a(value):
 def f(value):
 	return " F"+"{:.4f}".format(value)
 
+def par(par, value):
+	return " "+par+"{:.4f}".format(value)
+
+
 class coordSystem(object):
 	def __init__(self, E1Axis, E2Axis, E3Axis):
 		self.E1Axis = E1Axis

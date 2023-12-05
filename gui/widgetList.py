@@ -5,8 +5,15 @@
 # the same name of the file and of the widget class.
 #
 millWidgetList  = [\
+    "MillPocketCircleXYWidget",\
+    "MillPocketRectangleXYWidget",\
     "MillFaceZWidget",\
-    "MillProfileRoundedRectangleXAWidget"\
+    "MillDrillXYWidget",\
+    "MillDrillXYAWidget",\
+    "MillProfileCircleXYWidget",\
+    "MillProfileRectangleXYWidget",\
+    "MillProfileRoundedRectangleXAWidget",\
+    "MillProfileRoundedRectangleXYWidget"\
     ]
     
 #
@@ -14,4 +21,6 @@ millWidgetList  = [\
 # the same name of the file and of the widget class. 
 #
 latheWidgetList = [\
+    "LathePocketDWidget",\
+    "LatheThreadingWidget"
     ]

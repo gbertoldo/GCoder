@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Name=GCoder
+Exec=python /home/guilherme/ownCloud/CNC/GCoder/main.py
+Type=Application
+Comment=Gerador de codigo G
+Icon=/home/guilherme/ownCloud/CNC/GCoder/fig/icon.png

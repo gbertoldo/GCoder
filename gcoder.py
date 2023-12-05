@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+VERSION="v0.0.0"
+
 from Tkinter import *
 import tkMessageBox
 import PIL.Image
@@ -187,7 +189,8 @@ class Application(Frame):
         self.deletejobButton= Button(self.jobButtonsFrm, text="Apagar", command=self.deleteJobButtonPressed).grid(row=1,column=1, sticky=W+E, padx=3, pady=3)
         self.clearjobButton= Button(self.jobButtonsFrm, text="Limpar", command=self.clearJobButtonPressed).grid(row=1,column=2, sticky=W+E, padx=3, pady=3)
         
-        self.savejobButton= Button(self.jobFrm, text="Salvar o GCode", command=self.saveJobButtonPressed).grid(row=3,column=0, sticky=W+E)
+        self.savejobButton= Button(self.jobFrm, text="Gerar GCode", command=self.saveJobButtonPressed).grid(row=3,column=0, sticky=W+E)
+        self.savejobCloseButton= Button(self.jobFrm, text="Gerar GCode e Fechar", command=self.saveJobCloseButtonPressed).grid(row=4,column=0, sticky=W+E)
     
         self.jobListbox.bind('<Double-1>',lambda x: self.editJobButtonPressed())
         
@@ -332,11 +335,11 @@ class Application(Frame):
             prefix = "gui."
             jobList = self.turningJobList
             optList = self.turningOperations
-
+        
         exec("operationWidget = "+prefix+optList[index]["className"]+"."+optList[index]["className"]+"(self.operationEditorFrm)")
         self.setOperationEditor(operationWidget)
         optList[index]["fields"] = operationWidget.getFields()
-        jobList.append(copy.deepcopy(optList[index]))
+        jobList.append(copy.copy(optList[index]))
         self.operationUnderEdition = jobList[-1]
 
         self.updateJobListBox()
@@ -355,6 +358,7 @@ class Application(Frame):
         
         for item in jobList:
             self.jobListbox.insert(END, item["label"])
+        self.saveProject()
        
             
     # Moves up the selected operation from the job list
@@ -519,9 +523,18 @@ class Application(Frame):
     # Saves the current configuration and generates the gcode
     def saveJobButtonPressed(self):
         self.saveProject()
-        sys.stdout.write(self.generateGcode())
+        gc=self.generateGcode()
+        f = open("gcode.ngc", "w")
+        f.write(gc)
+        f.close()
+        sys.stdout.write(gc)
         return
     
+    # Saves the current configuration, generates the gcode and close
+    def saveJobCloseButtonPressed(self):
+        self.saveJobButtonPressed()
+        self.destroy()
+        exit()
     
     # Saves the operation under edition
     def saveEditorFrmButtonPressed(self):
@@ -603,7 +616,7 @@ class Application(Frame):
 
 
 app = Application()
-app.master.title("GCODER - UTFPR-FB")
-app.master.geometry('1400x870')
+app.master.title("GCODER - UTFPR-FB "+VERSION)
+app.master.geometry('1400x900')
 #app.master.geometry("{0}x{1}+0+0".format(app.master.winfo_screenwidth(), app.master.winfo_screenheight()))
 app.mainloop()

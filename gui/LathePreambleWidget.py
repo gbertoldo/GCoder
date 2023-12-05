@@ -11,11 +11,12 @@ class LathePreambleWidget(Frame):
         self.fields = []
         
         self.fields.append(IntegerEntry(name="Unidade",                             label="0 = polegadas (G20), 1 = milimetros (G21)", value=1, lower=0, upper=1))
+        self.fields.append(IntegerEntry(name="Modo Raio/Diametro",                  label="0=Diametro (G7), 1=Raio (G8)", value=0, lower=0, upper=1))
         self.fields.append(IntegerEntry(name="Modo de taxa de corte (feedrate)",    label="0=(G93) Tempo inverso, 1=(G94) (mm ou in)/min", value=1, lower=0, upper=1))
         self.fields.append(  FloatEntry(name="Taxa de corte (feedrate)",            label="de acordo com o modo da taxa de corte", value=60.0, lower=0.0, upper=100000.0))
         self.fields.append(  FloatEntry(name="Velocidade do spindle",               label="(rev/min)", value=1000.0, lower=0.0, upper=FLOATUPPERBOUND))
         self.fields.append(IntegerEntry(name="Ativar refrigeracao",                 label="0 = Nao (M9), 1 = Sim (M7 and M8)", value=0, lower=0, upper=1))
-        self.fields.append(IntegerEntry(name="Plano ativo",                         label="0 = XY (G17), 1 = ZX (G18), 2 = YZ (G19)", value=0, lower=0, upper=2))
+        self.fields.append(IntegerEntry(name="Plano ativo",                         label="0 = XY (G17), 1 = ZX (G18), 2 = YZ (G19)", value=1, lower=0, upper=2))
         self.fields.append(IntegerEntry(name="Cutter - compensacao de raio",        label="0 = Nao (G40), 1 = Sim", value=0, lower=0, upper=1))
         self.fields.append(IntegerEntry(name="Cutter - compensacao de comprimento", label="0 = Nao (G49), 1 = Sim", value=0, lower=0, upper=1))
         self.fields.append(IntegerEntry(name="Sistema de coordenadas",              label="1 a 6 -> G54 a G59 e 7 a 9 -> G59.1 a G59.3", value=1, lower=1, upper=9))
@@ -49,7 +50,13 @@ class LathePreambleWidget(Frame):
             gcode.append("G20; inches")
         else:
             gcode.append("G21; millimiters")
-            
+
+        var = filter(lambda variable: variable['name'] == "Modo Raio/Diametro", fields)[0]
+        if var['value'] == 0:
+            gcode.append("G7; Diameter mode")
+        else:
+            gcode.append("G8; Radius mode")
+
         var = filter(lambda variable: variable['name'] == "Modo de taxa de corte (feedrate)", fields)[0]
         if var['value'] == 0:
             gcode.append("G93;  Feedrate mode: inverse time")
