@@ -3,3 +3,7 @@ gui/__init__.pyc
 *.pyc
 gcode.ngc
 project.gcoder
+doc/gcoder-doc.aux
+doc/gcoder-doc.log
+doc/gcoder-doc.synctex.gz
+doc/gcoder-doc.toc

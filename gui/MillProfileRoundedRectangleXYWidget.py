@@ -37,7 +37,7 @@ class MillProfileRoundedRectangleXYWidget(Frame):
         self.form.grid(row=0, column=0, sticky="E")
 
         # Loading the image
-        self.img = PIL.Image.open(os.path.dirname(os.path.abspath(__file__))+"/MillProfileRoundedRectangleXYFig0.png") 
+        self.img = PIL.Image.open(os.path.dirname(os.path.abspath(__file__))+"/fig/MillProfileRoundedRectangleXYFig0.png") 
         ratio = 1.0
         maxSize = 300.0
         if self.img.width > self.img.height:

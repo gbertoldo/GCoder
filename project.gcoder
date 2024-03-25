@@ -3,4 +3,173 @@ I0
 aI0
 a(lp1
 a(lp2
-a.
+(dp3
+S'className'
+p4
+S'LatheThreadingWidget'
+p5
+sS'fields'
+p6
+(lp7
+(dp8
+S'upper'
+p9
+F1000000000000000.0
+sS'lower'
+p10
+F-1000000000000000.0
+sS'name'
+p11
+S'Zi'
+p12
+sS'value'
+p13
+F0.0
+sS'label'
+p14
+S'Coord. Z inicial (mm ou in)'
+p15
+sS'type'
+p16
+S'float'
+p17
+sa(dp18
+g9
+F1000000000000000.0
+sg10
+F-1000000000000000.0
+sg11
+S'Zf'
+p19
+sg13
+F-10.0
+sg14
+S'Coord. Z final (Zf<Zi=rosca direita; Zf>Zi=rosca invertida)(mm ou in)'
+p20
+sg16
+g17
+sa(dp21
+g9
+F1000000000000000.0
+sg10
+F-1000000000000000.0
+sg11
+S'Di'
+p22
+sg13
+F21.0
+sg14
+S'Diametro inicial (mm ou in)'
+p23
+sg16
+g17
+sa(dp24
+g9
+F1000000000000000.0
+sg10
+F-1000000000000000.0
+sg11
+S'D seguro'
+p25
+sg13
+F23.0
+sg14
+S'Diametro seguro (Ds>Di=rosca externa, Ds<Di=rosca interna) (mm ou in)'
+p26
+sg16
+g17
+sa(dp27
+g9
+F1000000000000000.0
+sg10
+F-1000000000000000.0
+sg11
+S'Passo da rosca'
+p28
+sg13
+F1.0
+sg14
+S'Passo da rosca (mm ou in)'
+p29
+sg16
+g17
+sa(dp30
+g9
+F1000000000000000.0
+sg10
+F0.0
+sg11
+S'Profundidade da rosca'
+p31
+sg13
+F0.63
+sg14
+S'Profundidade da rosca (mm ou in)'
+p32
+sg16
+g17
+sa(dp33
+g9
+F1000000000000000.0
+sg10
+F0.0
+sg11
+S'Passo de corte'
+p34
+sg13
+F0.1
+sg14
+S'Passo inicial de corte da ferramenta (mm ou in)'
+p35
+sg16
+g17
+sa(dp36
+g9
+I10
+sg10
+I0
+sg11
+S'Passos de acabamento'
+p37
+sg13
+I0
+sg14
+S'Numero de passos de acabamento'
+p38
+sg16
+S'int'
+p39
+sa(dp40
+g9
+I3
+sg10
+I0
+sg11
+S'Modo de chanfro'
+p41
+sg13
+I0
+sg14
+S'0=Sem chanfro, 1=entrada, 2=saida, 3=ambos'
+p42
+sg16
+g39
+sa(dp43
+g9
+F60.0
+sg10
+F30.0
+sg11
+S'Angulo de chanfro'
+p44
+sg13
+F45.0
+sg14
+S'Angulo de chanfro (graus)'
+p45
+sg16
+g17
+sasg14
+S'Rosqueamento'
+p46
+saa.

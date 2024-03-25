@@ -9,6 +9,7 @@ from PIL import ImageTk
 import os
 import copy
 import pickle
+from gui.DoubleScrolledFrame import *
 
 from gui.MillPreambleWidget import *
 from gui.MillPostambleWidget import *
@@ -46,6 +47,8 @@ class Application(Frame):
         # Initializes the main application
         #
         Frame.__init__(self, master, bd=5)
+
+        self.baseFrame = DoubleScrolledFrame(self, bd=5)
         
         ################################################################
         #
@@ -100,7 +103,7 @@ class Application(Frame):
         #
         # LEFT FRAME
         #
-        self.leftFrm  = Frame(self, bd = 5)
+        self.leftFrm  = Frame(self.baseFrame, bd = 5)
         self.leftFrm.grid(row=0, column=0)
         
         # Loading the LOGO image
@@ -151,7 +154,7 @@ class Application(Frame):
         
         self.operationListboxFrm = Frame(self.operationsFrm)
         self.operationListboxFrm.grid(row=2,column=0, sticky=W+E+N+S)
-        self.operationListbox = Listbox(self.operationListboxFrm, selectmode=SINGLE, height=10, width=40)
+        self.operationListbox = Listbox(self.operationListboxFrm, selectmode=SINGLE, height=5, width=40)
         self.operationListboxScroll = Scrollbar(self.operationListboxFrm, command=self.operationListbox.yview)
         self.operationListbox.configure(yscrollcommand=self.operationListboxScroll.set)
         self.operationListbox.pack(expand=YES, side=LEFT)
@@ -173,7 +176,7 @@ class Application(Frame):
                 
         self.jobListboxFrm = Frame(self.jobFrm)
         self.jobListboxFrm.grid(row=1,column=0, sticky=W+E)
-        self.jobListbox = Listbox(self.jobListboxFrm, selectmode=SINGLE, height=10, width=40)
+        self.jobListbox = Listbox(self.jobListboxFrm, selectmode=SINGLE, width=40)
         self.jobListboxScroll = Scrollbar(self.jobListboxFrm, command=self.jobListbox.yview)
         self.jobListbox.configure(yscrollcommand=self.jobListboxScroll.set)
         self.jobListbox.pack(side=LEFT)
@@ -198,7 +201,7 @@ class Application(Frame):
         #
         # RIGHT FRAME
         #
-        self.rightFrm = Frame(self, bd = 5)
+        self.rightFrm = Frame(self.baseFrame, bd = 5)
         self.rightFrm.grid(row=0, column=1, sticky=W+E+N)
         
         self.operationEditorFrm = Frame(self.rightFrm)
@@ -219,6 +222,7 @@ class Application(Frame):
 
         ################################################################
         self.updateJobListBox()
+        self.baseFrame.pack(expand=True, fill=BOTH)
 
         self.pack(expand=True, fill=BOTH)
     
@@ -617,6 +621,8 @@ class Application(Frame):
 
 app = Application()
 app.master.title("GCODER - UTFPR-FB "+VERSION)
-app.master.geometry('1400x900')
-#app.master.geometry("{0}x{1}+0+0".format(app.master.winfo_screenwidth(), app.master.winfo_screenheight()))
+#app.master.geometry('800x600')
+width=int(1.0*app.master.winfo_screenwidth())
+height=int(1.0*app.master.winfo_screenheight())
+app.master.geometry("{0}x{1}+0+0".format(width, height))
 app.mainloop()

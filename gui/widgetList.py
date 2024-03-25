@@ -22,5 +22,8 @@ millWidgetList  = [\
 #
 latheWidgetList = [\
     "LathePocketDWidget",\
-    "LatheThreadingWidget"
+    "LatheThreadingWidget",\
+    "LatheMonoExternalProfileRightToLeftWidget",\
+    "LatheMonoExternalProfileLeftToRightWidget",\
+    "LatheMonoInternalProfileRightToLeftWidget"
     ]
